@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos de Farmacia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef6f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .producto {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 22px;
+            padding: 22px;
+            max-width: 600px;
+        }
+        h2 {
+            color: #00796b;
+        }
+        .precio {
+            color: #388e3c;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .descripcion {
+            margin: 10px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Productos de Farmacia</h1>
+    <div id="productos"></div>
+
+    <script>
+        const productos = [
+            {
+                nombre: "Paracetamol 500mg",
+                descripcion: "Alivia el dolor y reduce la fiebre. Caja con 20 tabletas.",
+                precio: "$35.00"
+            },
+            {
+                nombre: "Ibuprofeno 400mg",
+                descripcion: "Antiinflamatorio y analgésico. Caja con 24 tabletas.",
+                precio: "$42.00"
+            },
+            {
+                nombre: "Jarabe para la tos",
+                descripcion: "Alivio para la tos seca e irritativa. Frasco de 120ml.",
+                precio: "$56.00"
+            },
+            {
+                nombre: "Termómetro digital",
+                descripcion: "Medición rápida y precisa de la temperatura corporal.",
+                precio: "$120.00"
+            },
+            {
+                nombre: "Gel antibacterial",
+                descripcion: "Desinfectante de manos sin enjuague. Botella de 250ml.",
+                precio: "$28.00"
+            },
+            {
+                nombre: "Vitamina C 1g",
+                descripcion: "Refuerza el sistema inmunológico. 30 tabletas efervescentes.",
+                precio: "$65.00"
+            }
+        ];
+
+        const contenedor = document.getElementById('productos');
+
+        productos.forEach(producto => {
+            const div = document.createElement('div');
+            div.className = 'producto';
+            div.innerHTML = `
+                <h2>${producto.nombre}</h2>
+                <div class="descripcion">${producto.descripcion}</div>
+                <div class="precio">${producto.precio}</div>
+            `;
+            contenedor.appendChild(div);
+        });
+    </script>
+</body>
+</html>
