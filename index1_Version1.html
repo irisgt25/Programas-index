@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario Simple</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #faf9f6;
+            margin: 0;
+            padding: 20px;
+        }
+        .receta {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 24px;
+            padding: 24px;
+            max-width: 600px;
+        }
+        h2 {
+            color: #3d5a80;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Recetario</h1>
+    <div id="recetas"></div>
+
+    <script>
+        const recetas = [
+            {
+                nombre: "Tortilla de patatas",
+                ingredientes: [
+                    "4 patatas medianas",
+                    "1 cebolla",
+                    "5 huevos",
+                    "Aceite de oliva",
+                    "Sal"
+                ],
+                pasos: [
+                    "Pelar y cortar las patatas y la cebolla en trozos finos.",
+                    "Freír las patatas y la cebolla en abundante aceite hasta que estén blandas.",
+                    "Escurrir el aceite y mezclar con los huevos batidos y sal.",
+                    "Cuajar la mezcla en una sartén por ambos lados."
+                ]
+            },
+            {
+                nombre: "Ensalada César",
+                ingredientes: [
+                    "Lechuga romana",
+                    "Pechuga de pollo",
+                    "Pan (para hacer croutons)",
+                    "Queso parmesano",
+                    "Salsa César"
+                ],
+                pasos: [
+                    "Lavar y trocear la lechuga.",
+                    "Cocinar la pechuga de pollo y cortarla en tiras.",
+                    "Cortar el pan en cubos y dorarlos en la sartén.",
+                    "Mezclar todos los ingredientes y añadir la salsa César y el parmesano."
+                ]
+            },
+            {
+                nombre: "Arroz con leche",
+                ingredientes: [
+                    "1 litro de leche",
+                    "100 g de arroz",
+                    "100 g de azúcar",
+                    "Canela en rama",
+                    "Cáscara de limón"
+                ],
+                pasos: [
+                    "Poner a calentar la leche con la canela y la cáscara de limón.",
+                    "Añadir el arroz y cocer a fuego lento removiendo.",
+                    "Agregar el azúcar al final y mezclar bien.",
+                    "Servir frío o templado, espolvoreando canela en polvo."
+                ]
+            },
+            {
+                nombre: "Guacamole",
+                ingredientes: [
+                    "2 aguacates maduros",
+                    "1 tomate",
+                    "1/2 cebolla",
+                    "Cilantro fresco",
+                    "Jugo de 1 limón",
+                    "Sal"
+                ],
+                pasos: [
+                    "Pelar y machacar los aguacates en un bol.",
+                    "Picar finamente el tomate, la cebolla y el cilantro.",
+                    "Mezclar todo y añadir el jugo de limón y la sal.",
+                    "Servir acompañado de nachos."
+                ]
+            },
+            {
+                nombre: "Spaghetti a la boloñesa",
+                ingredientes: [
+                    "400 g de spaghetti",
+                    "300 g de carne picada",
+                    "1 cebolla",
+                    "1 zanahoria",
+                    "400 g de tomate triturado",
+                    "Aceite de oliva",
+                    "Sal y pimienta"
+                ],
+                pasos: [
+                    "Cocer la pasta en agua con sal.",
+                    "Sofreír la cebolla y la zanahoria picadas, añadir la carne y dorar.",
+                    "Agregar el tomate, salpimentar y cocinar 15 minutos.",
+                    "Servir la salsa sobre la pasta cocida."
+                ]
+            },
+            {
+                nombre: "Panqueques",
+                ingredientes: [
+                    "1 taza de harina",
+                    "1 taza de leche",
+                    "1 huevo",
+                    "1 cucharada de azúcar",
+                    "1 pizca de sal",
+                    "Mantequilla para la sartén"
+                ],
+                pasos: [
+                    "Batir el huevo con la leche y el azúcar.",
+                    "Agregar la harina y la sal, mezclar bien.",
+                    "Enmantecar una sartén y verter un poco de masa.",
+                    "Cocinar por ambos lados hasta dorar y servir con lo que prefieras."
+                ]
+            }
+        ];
+
+        const contenedor = document.getElementById('recetas');
+
+        recetas.forEach(receta => {
+            const div = document.createElement('div');
+            div.className = 'receta';
+            div.innerHTML = `
+                <h2>${receta.nombre}</h2>
+                <strong>Ingredientes:</strong>
+                <ul>${receta.ingredientes.map(ing => `<li>${ing}</li>`).join('')}</ul>
+                <strong>Paso a paso:</strong>
+                <ol>${receta.pasos.map(paso => `<li>${paso}</li>`).join('')}</ol>
+            `;
+            contenedor.appendChild(div);
+        });
+    </script>
+</body>
+</html>
